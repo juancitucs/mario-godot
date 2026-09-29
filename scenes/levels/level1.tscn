@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dmbuxcwdr743o" path="res://assets/Stage1-1.png" id="1_dopym"]
 [ext_resource type="Texture2D" uid="uid://bvebancamdu6" path="res://assets/tiles/Ground.png" id="1_jwv3a"]
 [ext_resource type="PackedScene" uid="uid://diyoqsc0sh5bj" path="res://scenes/enemies/goomba.tscn" id="3_ootpb"]
+[ext_resource type="Script" uid="uid://bsk4af6owf0nu" path="res://scripts/world/kill_zone.gd" id="4_killzone"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")
@@ -12,6 +13,9 @@ texture = ExtResource("1_jwv3a")
 [sub_resource type="TileSet" id="TileSet_lgp48"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dopym")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_killzone"]
+size = Vector2(3640, 64)
 
 [node name="Level1" type="Node2D" unique_id=845446996]
 
@@ -33,3 +37,12 @@ position = Vector2(176, 184)
 
 [node name="PuntoB" type="Marker2D" parent="."]
 position = Vector2(320, 184)
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(1620, 400)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_killzone")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("RectangleShape2D_killzone")
