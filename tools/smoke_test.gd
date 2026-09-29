@@ -112,6 +112,7 @@ func _check_input_map() -> void:
 			continue
 		var event := InputEventKey.new()
 		event.physical_keycode = EXPECTED_ACTIONS[action]
+		event.pressed = true
 		if not InputMap.event_is_action(event, action):
 			_fail("la acción '%s' no responde a su tecla" % action)
 
