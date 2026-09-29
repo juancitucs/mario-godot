@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cpchdagkci3fu" path="res://scenes/player/mario.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://c515lkc7vc146" path="res://scripts/world/camera_follow.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://1sb7hw3xxwsa" path="res://scenes/levels/level1.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://diyoqsc0sh5bj" path="res://scenes/enemies/goomba.tscn" id="5_tbgi4"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_t3xul"]
 a = Vector2(-16, -16)
@@ -27,3 +28,12 @@ position = Vector2(464, 176)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=189296169]
 shape = SubResource("SegmentShape2D_t3xul")
 one_way_collision = true
+
+[node name="Goomba" parent="." unique_id=496572413 instance=ExtResource("5_tbgi4")]
+position = Vector2(200, 120)
+
+[node name="Goomba2" parent="." unique_id=816999609 instance=ExtResource("5_tbgi4")]
+position = Vector2(312, 48)
+
+[node name="Goomba3" parent="." unique_id=1316407567 instance=ExtResource("5_tbgi4")]
+position = Vector2(392, 40)
