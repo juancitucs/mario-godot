@@ -44,34 +44,18 @@ region = Rect2(128, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wrvex")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ckko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4gsdp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_752v2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_76esm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cdawk")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_wv04r")
+}],
+"loop": 1,
+"name": &"crouching",
+"speed": 5.0
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fntcd")
-}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_se746")
 }],
-"loop": 1,
-"name": &"all",
+"loop": 0,
+"name": &"dying",
 "speed": 5.0
 }, {
 "frames": [{
@@ -116,7 +100,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3xul"]
 size = Vector2(16, 16)
 
-[node name="Mario" type="CharacterBody2D" unique_id=63702054]
+[node name="Mario" type="CharacterBody2D" unique_id=63702054 groups=["player"]]
 collision_layer = 2
 collision_mask = 1
 physics_material_override = ExtResource("2_friction")

@@ -20,7 +20,7 @@ script = ExtResource("2_1bvp3")
 [node name="Level1" parent="." unique_id=845446996 instance=ExtResource("2_h2yge")]
 
 [node name="Mario" parent="." unique_id=63702054 instance=ExtResource("1_ig7tw")]
-position = Vector2(64, 88)
+position = Vector2(64, 184)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1457199652]
 position = Vector2(464, 176)
