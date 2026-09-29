@@ -1,40 +1,19 @@
 class_name Goomba
 extends CharacterBody2D
-## Adaptación de ``GoombaScript.cs`` de la guía (Unity).
-##
-## * Patrulla entre los puntos ``PuntoA`` y ``PuntoB`` con ``Speed``,
-##   igual que ``Vector2.MoveTowards`` de la guía.
-## * Si Mario pisa su cabeza (el collider en *trigger* de la guía) se
-##   aplasta con el sprite ``down``, desaparece y Mario rebota
-##   (``Mario.Hit = true``).
-## * Si Mario lo toca por el costado, Mario muere (colisión con enemigos).
-##
-## Nota: en la guía los puntos son objetos vacíos hijos del enemigo; en
-## Godot eso los haría viajar con el Goomba, así que se declaran como
-## hermanos dentro del nivel y se referencian con estos NodePath.
 
 @export_category("Patrulla")
-## Velocidad de la patrulla (``Speed = 2.5`` en Unity x 16 px por unidad).
 @export var speed: float = 40.0
-## Punto de inicio del recorrido (hermano del Goomba dentro del nivel).
 @export var punto_a_path: NodePath
-## Punto final del recorrido.
 @export var punto_b_path: NodePath
-## Distancia a la que un punto se considera alcanzado.
 @export_range(0.5, 16.0, 0.5) var arrive_threshold: float = 2.0
-
 @export_category("Aplastamiento")
-## Tiempo que el Goomba aplastado permanece en escena.
 @export var squash_time: float = 0.6
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
-## Cabeza: el ``Circle Collider`` en trigger de la guía.
 @onready var _stomp_area: Area2D = $StompArea
-## Cuerpo: colisión lateral con el jugador.
 @onready var _hurt_area: Area2D = $HurtArea
 
-## Punto de destino actual (``MoveToA`` / ``MoveToB`` de la guía).
 var _target: Marker2D
 var _point_a: Marker2D
 var _point_b: Marker2D

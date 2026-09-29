@@ -1,16 +1,18 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dg80p27ysnvtj"]
 
-[ext_resource type="Script" path="res://scripts/blocks/solid_block.gd" id="1"]
+[ext_resource type="Script" uid="uid://br5qq46wbpthg" path="res://scripts/blocks/solid_block.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cm1dberf4pfjp" path="res://assets/tiles/block.png" id="2_ia35m"]
 
 [sub_resource type="RectangleShape2D" id="sq16"]
 size = Vector2(16, 16)
 
-[node name="SolidBlock" type="StaticBody2D"]
-collision_layer = 1
+[node name="SolidBlock" type="StaticBody2D" unique_id=1499040158]
 collision_mask = 0
 script = ExtResource("1")
+texture = ExtResource("2_ia35m")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2036328012]
+texture = ExtResource("2_ia35m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731515007]
 shape = SubResource("sq16")

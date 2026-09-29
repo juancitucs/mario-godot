@@ -1,15 +1,19 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c5mdx64uevl3r"]
 
-[ext_resource type="Texture2D" path="res://assets/spritesheets/misteryBlock.png" id="1_tex"]
-[ext_resource type="Script" path="res://scripts/blocks/mystery_block.gd" id="1_scr"]
+[ext_resource type="Script" uid="uid://4qp4ljuq24ix" path="res://scripts/blocks/mystery_block.gd" id="1_scr"]
+[ext_resource type="Texture2D" uid="uid://bwv5m4j1ctfuh" path="res://assets/spritesheets/misteryBlock.png" id="1_tex"]
 
-[sub_resource type="AtlasTexture" id="q0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdual"]
 atlas = ExtResource("1_tex")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="q1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqlpf"]
 atlas = ExtResource("1_tex")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o5jc"]
+atlas = ExtResource("1_tex")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="used"]
 atlas = ExtResource("1_tex")
@@ -19,10 +23,13 @@ region = Rect2(32, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("q0")
+"texture": SubResource("AtlasTexture_tdual")
 }, {
 "duration": 1.0,
-"texture": SubResource("q1")
+"texture": SubResource("AtlasTexture_fqlpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o5jc")
 }],
 "loop": 1,
 "name": &"idle",
@@ -40,26 +47,34 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="sq16"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="hit"]
-size = Vector2(16, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a07yk"]
+size = Vector2(16, 8.030557)
 
-[node name="MysteryBlock" type="StaticBody2D"]
-collision_layer = 1
+[node name="MysteryBlock" type="StaticBody2D" unique_id=865973478]
 collision_mask = 0
 script = ExtResource("1_scr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=859581516]
 sprite_frames = SubResource("frames")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1470602400]
 shape = SubResource("sq16")
 
-[node name="BottomHit" type="Area2D" parent="."]
+[node name="BottomHit" type="Area2D" parent="." unique_id=1726022136]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomHit"]
-position = Vector2(0, 10)
-shape = SubResource("hit")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BottomHit" unique_id=624676100]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_a07yk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomHit" unique_id=1243614130]
+visible = false
+position = Vector2(1.5348196e-06, 8)
+rotation = -0.08726646
+scale = Vector2(0.9999999, 0.9999999)
+skew = -1.3962636
+shape = SubResource("RectangleShape2D_a07yk")
+disabled = true

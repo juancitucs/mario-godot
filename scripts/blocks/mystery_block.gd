@@ -1,11 +1,5 @@
 class_name MysteryBlock
 extends StaticBody2D
-## Bloque interrogante (``misteryBlock.png``) de la guía.
-##
-## En Unity el docente distingue bloques con los que Mario interactúa; aquí el
-## bloque detecta el golpe por debajo con su área ``BottomHit`` (equivale al
-## contacto del Rigidbody2D de Unity), suelta una moneda, cambia al frame de
-## bloque usado y hace el saltito ``bump``.
 
 const COIN_SCENE: PackedScene = preload("res://scenes/pickups/coin.tscn")
 
@@ -28,9 +22,7 @@ func _on_bottom_body_entered(body: Node2D) -> void:
 		return
 	if not body is PlayerMovement:
 		return
-	# Golpe por debajo: el centro de Mario está más abajo que el del bloque.
-	# (Si estuviera encima, sería un aterrizaje, no un golpe).
-	if body.global_position.y > global_position.y + 2.0:
+	if body.global_position.y > global_position.y + 2.0 and not body.is_falling():
 		hit()
 
 

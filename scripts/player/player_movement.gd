@@ -1,71 +1,40 @@
 class_name PlayerMovement
 extends CharacterBody2D
-## Adaptación en Godot del script ``PlayerMovement.cs`` de la guía (Unity).
-##
-## Mecánicas de la guía cubiertas aquí:
-## * Movimiento horizontal con ``moveSpeed`` (AWSD / flechas).
-## * Salto con ``jumpForce`` sólo cuando Mario toca el suelo.
-## * Agacharse manteniendo pulsado hacia abajo estando en el suelo.
-## * Voltear el sprite según la dirección (``spriteRenderer.flipX``).
-## * Rebote al pisar a un enemigo (el campo ``Hit`` de la guía).
-## * Animaciones: Idle, Run, Skid (frenar), Jump, agachado y muerte.
-##
-## Equivalencias Unity -> Godot:
-## * ``Rigidbody2D.velocity`` en ``FixedUpdate`` -> ``velocity`` en ``_physics_process``.
-## * ``Physics2D.OverlapCircle(groundCheck)`` -> ``is_on_floor()`` de CharacterBody2D.
-## * ``Animator`` + Blend Tree -> ``AnimatedSprite2D`` con ``SpriteFrames``.
-## * Tag "Player" de Unity -> grupo "player" de Godot.
 
-## Grupo que identifica al jugador (equivalente al tag "Player").
 const GROUP_PLAYER := "player"
 
 @export_category("Movimiento")
-## Velocidad de movimiento horizontal (``moveSpeed`` en la guía).
 @export var move_speed: float = 100.0
-## Impulso vertical del salto (``jumpForce`` en la guía).
 @export var jump_velocity: float = -300.0
-## Desaceleración al cambiar de dirección: dura lo suficiente para
-## mostrar el frame ``Mario_Skid`` de la guía.
 @export var skid_deceleration: float = 600.0
-
 @export_category("Muerte")
-## Espera antes de reiniciar la escena tras morir.
 @export var death_delay: float = 1.5
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
 
-## ``isCrouching``: Mario agachado, no se puede mover.
 var is_crouching := false
-## ``Hit``: lo activa el Goomba al pisarlo y Mario rebota.
 var hit := false
-## Estado del jugador; ``true`` bloquea el control y la física.
 var is_dead := false
-## ``isGrounded`` de la guía: se expone para verlo en el inspector.
 var is_grounded := false
 
-
+func is_falling() -> bool:
+	return self.velocity.y > 0
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
-	# Input.GetAxis("Horizontal") / Input.GetAxis("Vertical")
 	var direction := Input.get_axis("move_left", "move_right")
 	var vertical := Input.get_axis("move_up", "move_down")
 
-	# En Unity la gravedad la aplica el Rigidbody2D; aquí es el propio motor
-	# el que empuja a los CharacterBody2D, sólo hay que integrarla.
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 
-	# Rebote al pisar a un enemigo:
-	#   if (Hit) { rb.velocity = new Vector2(rb.velocity.x, jumpForce); Hit = false; }
 	if hit:
-		velocity.y = jump_velocity
+		velocity.y = jump_velocity * 0.6
 		hit = false
 
-	# if (IsGrounded() && Input.GetAxis("Vertical") < 0) isCrouching = true;
-	# (en Unity "abajo" es el eje negativo, en Godot el positivo)
+
 	is_crouching = is_on_floor() and vertical > 0.0
 
 	# if (Input.GetButtonDown("Jump") && IsGrounded()) isJumping = true;
