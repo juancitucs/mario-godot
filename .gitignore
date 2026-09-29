@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Texto extraído de la guía (regenerable con pdftotext)
+guia3.txt
