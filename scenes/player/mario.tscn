@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c6iip1ti5qbm8" path="res://assets/spritesheets/Mario.png" id="1_w74su"]
 [ext_resource type="Script" uid="uid://dwyrq8wo4t24" path="res://scripts/player/player_movement.gd" id="1_wrvex"]
+[ext_resource type="PhysicsMaterial" path="res://resources/frictionless.tres" id="2_friction"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrvex"]
 atlas = ExtResource("1_w74su")
@@ -116,6 +117,9 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="Mario" type="CharacterBody2D" unique_id=63702054]
+collision_layer = 2
+collision_mask = 1
+physics_material_override = ExtResource("2_friction")
 script = ExtResource("1_wrvex")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123743938]
