@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/hud.gd" id="1"]
+
+[node name="Hud" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1")
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 120.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 8
+
+[node name="MessageLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = -24.0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1

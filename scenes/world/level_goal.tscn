@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/flag-mast.png" id="1_mast"]
+[ext_resource type="Texture2D" path="res://assets/final-flag.png" id="2_flag"]
+[ext_resource type="Script" path="res://scripts/world/level_goal.gd" id="1_scr"]
+
+[sub_resource type="RectangleShape2D" id="win"]
+size = Vector2(24, 167)
+
+[node name="LevelGoal" type="Node2D"]
+script = ExtResource("1_scr")
+
+[node name="Mast" type="Sprite2D" parent="."]
+texture = ExtResource("1_mast")
+
+[node name="Flag" type="Sprite2D" parent="."]
+position = Vector2(-8, -67)
+texture = ExtResource("2_flag")
+
+[node name="WinArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+shape = SubResource("win")

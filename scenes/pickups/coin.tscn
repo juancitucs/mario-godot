@@ -1,0 +1,56 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/spritesheets/coin.png" id="1_tex"]
+[ext_resource type="Script" path="res://scripts/pickups/coin.gd" id="1_scr"]
+
+[sub_resource type="AtlasTexture" id="c0"]
+atlas = ExtResource("1_tex")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="c1"]
+atlas = ExtResource("1_tex")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="c2"]
+atlas = ExtResource("1_tex")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="c3"]
+atlas = ExtResource("1_tex")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="frames"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("c3")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="pick"]
+size = Vector2(10, 14)
+
+[node name="Coin" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_scr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("frames")
+animation = &"spin"
+autoplay = "spin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("pick")

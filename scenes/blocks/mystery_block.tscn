@@ -1,0 +1,65 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/spritesheets/misteryBlock.png" id="1_tex"]
+[ext_resource type="Script" path="res://scripts/blocks/mystery_block.gd" id="1_scr"]
+
+[sub_resource type="AtlasTexture" id="q0"]
+atlas = ExtResource("1_tex")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="q1"]
+atlas = ExtResource("1_tex")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="used"]
+atlas = ExtResource("1_tex")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="frames"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("q1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("used")
+}],
+"loop": 0,
+"name": &"used",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="sq16"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="hit"]
+size = Vector2(16, 10)
+
+[node name="MysteryBlock" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_scr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("frames")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("sq16")
+
+[node name="BottomHit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomHit"]
+position = Vector2(0, 10)
+shape = SubResource("hit")
