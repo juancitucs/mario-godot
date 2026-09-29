@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://diyoqsc0sh5bj"]
 
 [ext_resource type="Texture2D" uid="uid://xolbdemgam5c" path="res://assets/spritesheets/goomba.png" id="1_1ng5m"]
-[ext_resource type="Script" uid="uid://ckalbcxwq02dr" path="res://goomba.gd" id="1_jke6y"]
+[ext_resource type="Script" uid="uid://ckalbcxwq02dr" path="res://scripts/enemies/goomba.gd" id="1_jke6y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jke6y"]
 atlas = ExtResource("1_1ng5m")

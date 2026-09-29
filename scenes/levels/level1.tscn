@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dmbuxcwdr743o" path="res://assets/Stage1-1.png" id="1_dopym"]
 [ext_resource type="Texture2D" uid="uid://bvebancamdu6" path="res://assets/tiles/Ground.png" id="1_jwv3a"]
-[ext_resource type="PackedScene" uid="uid://diyoqsc0sh5bj" path="res://goomba.tscn" id="3_ootpb"]
+[ext_resource type="PackedScene" uid="uid://diyoqsc0sh5bj" path="res://scenes/enemies/goomba.tscn" id="3_ootpb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpchdagkci3fu"]
 
 [ext_resource type="Texture2D" uid="uid://c6iip1ti5qbm8" path="res://assets/spritesheets/Mario.png" id="1_w74su"]
-[ext_resource type="Script" uid="uid://dwyrq8wo4t24" path="res://mario_control.gd" id="1_wrvex"]
+[ext_resource type="Script" uid="uid://dwyrq8wo4t24" path="res://scripts/player/player_movement.gd" id="1_wrvex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrvex"]
 atlas = ExtResource("1_w74su")
