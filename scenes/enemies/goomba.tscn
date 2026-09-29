@@ -38,15 +38,39 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3xul"]
-size = Vector2(16, 16)
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stomp"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hurt"]
+size = Vector2(16, 10)
 
 [node name="Goomba" type="CharacterBody2D" unique_id=496572413]
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("1_jke6y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=112386932]
 sprite_frames = SubResource("SpriteFrames_25vgq")
 autoplay = "default"
-frame_progress = 0.4914222
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012230035]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_t3xul")
+
+[node name="StompArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_stomp")
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_hurt")

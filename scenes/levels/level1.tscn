@@ -24,4 +24,12 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAACAAwAAAAAAAA
 tile_set = SubResource("TileSet_lgp48")
 
 [node name="Goomba" parent="." unique_id=496572413 instance=ExtResource("3_ootpb")]
-position = Vector2(224, 56)
+position = Vector2(224, 184)
+punto_a_path = NodePath("../PuntoA")
+punto_b_path = NodePath("../PuntoB")
+
+[node name="PuntoA" type="Marker2D" parent="."]
+position = Vector2(176, 184)
+
+[node name="PuntoB" type="Marker2D" parent="."]
+position = Vector2(320, 184)
