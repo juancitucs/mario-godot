@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cpchdagkci3fu"]
+
+[ext_resource type="Texture2D" uid="uid://c6iip1ti5qbm8" path="res://assets/spritesheets/Mario.png" id="1_w74su"]
+[ext_resource type="Script" uid="uid://dwyrq8wo4t24" path="res://mario_control.gd" id="1_wrvex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrvex"]
+atlas = ExtResource("1_w74su")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ckko"]
+atlas = ExtResource("1_w74su")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gsdp"]
+atlas = ExtResource("1_w74su")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_752v2"]
+atlas = ExtResource("1_w74su")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76esm"]
+atlas = ExtResource("1_w74su")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdawk"]
+atlas = ExtResource("1_w74su")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv04r"]
+atlas = ExtResource("1_w74su")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fntcd"]
+atlas = ExtResource("1_w74su")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se746"]
+atlas = ExtResource("1_w74su")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3xul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrvex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ckko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gsdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_752v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76esm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdawk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv04r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fntcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se746")
+}],
+"loop": 1,
+"name": &"all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrvex")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdawk")
+}],
+"loop": 1,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ckko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gsdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_752v2")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76esm")
+}],
+"loop": 1,
+"name": &"stopping",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3xul"]
+size = Vector2(16, 16)
+
+[node name="Mario" type="CharacterBody2D" unique_id=63702054]
+script = ExtResource("1_wrvex")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123743938]
+sprite_frames = SubResource("SpriteFrames_t3xul")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1466021853]
+shape = SubResource("RectangleShape2D_t3xul")
