@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://diyoqsc0sh5bj" path="res://scenes/enemies/goomba.tscn" id="3_ootpb"]
 [ext_resource type="Script" uid="uid://bsk4af6owf0nu" path="res://scripts/world/kill_zone.gd" id="4_killzone"]
 [ext_resource type="PackedScene" uid="uid://cpchdagkci3fu" path="res://scenes/player/mario.tscn" id="5_dywbp"]
-[ext_resource type="PackedScene" path="res://scenes/blocks/mystery_block.tscn" id="6_1seuy"]
+[ext_resource type="PackedScene" uid="uid://c5mdx64uevl3r" path="res://scenes/blocks/mystery_block.tscn" id="6_1seuy"]
 [ext_resource type="PackedScene" uid="uid://dg80p27ysnvtj" path="res://scenes/blocks/solid_block.tscn" id="7_2r1tl"]
 [ext_resource type="PackedScene" path="res://scenes/pickups/coin.tscn" id="8_8a7m2"]
 
@@ -27,10 +27,10 @@ size = Vector2(3640, 64)
 [node name="Level1" type="Node2D" unique_id=845446996]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=330784861]
-offset_left = -272.0
-offset_top = -136.0
-offset_right = 3664.0
-offset_bottom = 736.0
+offset_left = -240.0
+offset_top = -120.0
+offset_right = 3696.0
+offset_bottom = 752.0
 color = Color(0, 0.6039216, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2024989003]
