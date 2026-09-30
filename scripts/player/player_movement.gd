@@ -7,6 +7,7 @@ const GROUP_PLAYER := "player"
 @export var move_speed: float = 100.0
 @export var jump_velocity: float = -300.0
 @export var skid_deceleration: float = 600.0
+@export var min_jump: float = -300
 @export_category("Muerte")
 @export var death_delay: float = 1.5
 
@@ -18,6 +19,7 @@ var hit := false
 var is_dead := false
 var death_frozen := false
 var is_grounded := false
+
 
 func is_falling() -> bool:
 	return self.velocity.y > 0
@@ -41,8 +43,15 @@ func _physics_process(delta: float) -> void:
 
 	is_crouching = is_on_floor() and vertical > 0.0
 
+	if Input.is_action_pressed("jump") and is_on_floor():
+		velocity.y = jump_velocity
+	
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+
+	if Input.is_action_just_released("jump") and velocity.y < min_jump:
+		velocity.y = min_jump
 
 	var skidding := false
 	if direction == 0.0 or is_crouching:

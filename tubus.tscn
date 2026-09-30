@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ch5ronktjvgs0"]
+
+[ext_resource type="Texture2D" uid="uid://w0y7dffuwock" path="res://assets/pipe3.png" id="1_84wbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3xul"]
+size = Vector2(32, 64)
+
+[node name="Tubus" type="StaticBody2D" unique_id=1943725306]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1835123981]
+texture = ExtResource("1_84wbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=299223119]
+shape = SubResource("RectangleShape2D_t3xul")
